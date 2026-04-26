@@ -1,0 +1,61 @@
+/**
+ * Design tokens — Eastern Paper style.
+ * After hi-fi designs land (Task 8.1), only this file + component .wxss
+ * are touched. Pages reference variables only; no raw hex anywhere else.
+ */
+page {
+  /* Ink */
+  --ink-deep: #1F3A40;
+  --ink-cyan: #2D5560;
+  --ink-light: #5A8A92;
+
+  /* Paper */
+  --paper-rice: #F7EEDA;
+  --paper-warm: #F5E9C8;
+  --paper-deep: #EDDEB6;
+
+  /* Frame */
+  --frame-brown: #5A3C1F;
+  --frame-light: #B8966B;
+
+  /* Seal & status */
+  --seal-red: #8B3A3A;
+  --seal-light: #B86060;
+  --success: #4A6B3F;
+  --warn: #B8742A;
+
+  /* Text */
+  --text-main: #3A2818;
+  --text-fade: #7A6A4F;
+  --text-mute: #A89880;
+
+  /* Spacing (4rpx base) */
+  --sp-1: 8rpx; --sp-2: 16rpx; --sp-3: 24rpx;
+  --sp-4: 32rpx; --sp-5: 48rpx; --sp-6: 64rpx;
+
+  /* Type */
+  --fs-xs: 20rpx; --fs-sm: 24rpx; --fs-base: 28rpx;
+  --fs-md: 32rpx; --fs-lg: 40rpx; --fs-xl: 56rpx;
+
+  /* Radius */
+  --r-sm: 8rpx; --r-md: 16rpx; --r-lg: 24rpx; --r-pill: 999rpx;
+
+  /* Shadow */
+  --ele-1: 0 2rpx 8rpx rgba(31, 58, 64, 0.06);
+  --ele-2: 0 4rpx 16rpx rgba(31, 58, 64, 0.10);
+  --ele-3: 0 8rpx 32rpx rgba(31, 58, 64, 0.14);
+
+  background: var(--paper-rice);
+  color: var(--text-main);
+  font-family: 'NotoSerifSC', 'PingFang SC', 'Source Han Serif SC', serif;
+  font-size: var(--fs-base);
+}
+
+.serif { font-family: 'NotoSerifSC', serif; }
+.sans { font-family: -apple-system, 'PingFang SC', sans-serif; }
+.vertical { writing-mode: vertical-rl; text-orientation: upright; }
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 80ms !important; transition-duration: 80ms !important; }
+}

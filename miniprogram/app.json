@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/shilu/index",
+    "pages/mingren/index/index",
+    "pages/wanwu/index/index",
+    "pages/wusheng/index/index",
+    "pages/mingren/detail/index",
+    "pages/wanwu/detail/index",
+    "pages/wusheng/certificate/index",
+    "pages/chat/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "苏东坡 · 杭州行旅",
+    "navigationBarBackgroundColor": "#F5E9C8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7EEDA"
+  },
+  "tabBar": {
+    "color": "#A89880",
+    "selectedColor": "#1F3A40",
+    "backgroundColor": "#F5E9C8",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/shilu/index", "text": "诗路心踪" },
+      { "pagePath": "pages/mingren/index/index", "text": "名人心迹" },
+      { "pagePath": "pages/wanwu/index/index", "text": "万物心愈" },
+      { "pagePath": "pages/wusheng/index/index", "text": "吾生心途" }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于校验你是否到达东坡足迹景点"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"],
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
