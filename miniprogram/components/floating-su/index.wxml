@@ -1,0 +1,14 @@
+<view wx:if="{{visible}}"
+      class="float"
+      style="left:{{posX}}rpx;top:{{posY}}rpx;"
+      bindlongpress="onLongPress"
+      bindtouchmove="onTouchMove"
+      bindtouchend="onTouchEnd"
+      bindtap="onTap"
+      aria-role="button"
+      aria-label="问问东坡先生">
+  <view class="bubble" wx:if="{{showBubble}}">问我</view>
+  <view class="face">
+    <image class="avatar" src="{{avatarSrc}}" mode="aspectFill" />
+  </view>
+</view>
