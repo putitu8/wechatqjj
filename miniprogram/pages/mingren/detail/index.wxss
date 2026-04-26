@@ -1,0 +1,16 @@
+.page { min-height: 100vh; padding-bottom: 200rpx; }
+.hero { height: 480rpx; position: relative; background-size: cover; background-position: center; background-color: var(--ink-cyan); }
+.mask { position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(31, 58, 64, 0.7)); }
+.hero-name { position: absolute; left: var(--sp-4); bottom: var(--sp-3); font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-xl); color: var(--paper-warm); letter-spacing: 8rpx; }
+
+.body { padding: var(--sp-4); }
+.intro { display: block; font-size: var(--fs-base); line-height: 1.7; color: var(--text-main); }
+
+.poem-frame { display: block; margin: var(--sp-5) auto; }
+.poem-title { display: block; font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-md); color: var(--ink-deep); text-align: center; margin-bottom: var(--sp-2); }
+.poem-line { display: block; font-family: 'NotoSerifSC', serif; font-size: var(--fs-md); color: var(--ink-deep); margin: var(--sp-1) auto; letter-spacing: 6rpx; }
+.poem-note { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-fade); text-align: center; }
+
+.actions { margin-top: var(--sp-5); }
+.cta { background: var(--ink-deep); color: var(--paper-warm); height: 96rpx; line-height: 96rpx; border-radius: var(--r-md); font-family: 'NotoSerifSC', serif; font-size: var(--fs-md); letter-spacing: 6rpx; }
+.done { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); color: var(--text-fade); }

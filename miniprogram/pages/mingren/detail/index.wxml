@@ -1,0 +1,26 @@
+<view class="page" wx:if="{{site}}">
+  <view class="hero" style="background-image:url('{{site.imageUrl}}')">
+    <view class="mask"></view>
+    <text class="hero-name">{{site.name}}</text>
+  </view>
+
+  <view class="body">
+    <text class="intro">{{site.intro}}</text>
+
+    <ancient-frame wx:if="{{poem}}" text=" " size="lg" class="poem-frame">
+      <text class="poem-title">《{{poem.title}}》</text>
+      <text class="poem-line vertical" wx:for="{{poem.lines}}" wx:key="*this">{{item}}</text>
+      <text class="poem-note">{{poem.note}}</text>
+    </ancient-frame>
+
+    <view class="actions">
+      <button wx:if="{{!checkedIn}}" class="cta" bindtap="onCheckin" loading="{{checking}}">我已到此一游</button>
+      <view wx:else class="done">
+        <seal-stamp size="md" id="seal" />
+        <text>已盖章 · {{checkedAtLabel}}</text>
+      </view>
+    </view>
+  </view>
+
+  <floating-su />
+</view>
