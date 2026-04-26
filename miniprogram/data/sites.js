@@ -1,0 +1,20 @@
+/**
+ * 7 sites of "东坡行旅 · 杭州" cultural tour.
+ * Coordinates are gcj02 (matching wx.getLocation default).
+ * (Verify lat/lng on a real device walk-through before launch — placeholder coords below.)
+ */
+const sites = {
+  shiwudong:   { id: 'shiwudong',   name: '石屋洞题刻',   lat: 30.2280, lng: 120.1180, radius: 200, intro: '北宋古洞题刻群，含苏轼、蔡襄等多家手迹。', poemId: null },
+  youmeitang:  { id: 'youmeitang',  name: '有美堂遗址',   lat: 30.2460, lng: 120.1560, radius: 200, intro: '宋嘉祐二年梅挚知杭州时建，苏轼《有美堂暴雨》作于此。', poemId: 'youmeitang-baoyu' },
+  liuyiquan:   { id: 'liuyiquan',   name: '六一泉',       lat: 30.2410, lng: 120.1490, radius: 200, intro: '苏轼为纪念恩师欧阳修「六一居士」而题名。', poemId: 'liuyiquan' },
+  sudi:        { id: 'sudi',        name: '苏堤',         lat: 30.2470, lng: 120.1430, radius: 600, intro: '元祐五年苏轼疏浚西湖，葑泥筑堤，长 2.8 公里。', poemId: null },
+  sushixiang:  { id: 'sushixiang',  name: '苏轼石像',     lat: 30.2390, lng: 120.1460, radius: 200, intro: '后世为纪念苏轼治杭功绩所立。', poemId: null },
+  damailing:   { id: 'damailing',   name: '大麦岭题刻',   lat: 30.2330, lng: 120.1410, radius: 200, intro: '元祐五年苏轼登大麦岭与僚属游览所题。', poemId: null },
+  guoxiting:   { id: 'guoxiting',   name: '过溪亭',       lat: 30.2270, lng: 120.1090, radius: 200, intro: '虎跑山林间小亭，传苏轼游此作《过溪亭》。', poemId: 'guoxiting' }
+};
+
+module.exports = Object.freeze({
+  sites,
+  all: Object.values(sites),
+  byId: (id) => sites[id] || null
+});
