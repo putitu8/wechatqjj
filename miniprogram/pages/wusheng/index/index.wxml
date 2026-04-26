@@ -1,0 +1,39 @@
+<view class="page">
+  <!-- Not logged in -->
+  <view wx:if="{{!user}}" class="login-card">
+    <image class="avatar-large" src="/assets/su-avatar.png" />
+    <text class="welcome">欲访东坡先生足迹</text>
+    <text class="welcome-sub">请先留下名号</text>
+    <button class="btn-primary" open-type="getPhoneNumber" bindgetphonenumber="onGetPhone">微信手机号登录</button>
+    <text class="skip" bindtap="onSkip">暂不登录，先逛逛 ›</text>
+  </view>
+
+  <!-- Logged in -->
+  <view wx:else>
+    <view class="user-head">
+      <image class="avatar" src="{{user.avatar || '/assets/default-avatar.png'}}" />
+      <text class="user-name vertical">东坡同游 {{daysSinceJoin}} 日</text>
+    </view>
+
+    <view class="progress-card">
+      <text class="progress-title">东坡行旅 · 杭州</text>
+      <view class="progress-bar"><view class="progress-fill" style="width:{{progressPct}}%"></view></view>
+      <view class="progress-meta">
+        <text>已访 <text class="num">{{completedCount}}</text> 处</text>
+        <text>余 {{remainingCount}} 处待行</text>
+      </view>
+    </view>
+
+    <view class="mini-grid">
+      <view class="mini {{item.done ? 'done' : 'todo'}}" wx:for="{{sites}}" wx:key="id">
+        <text class="mini-name">{{item.shortName}}</text>
+        <seal-stamp wx:if="{{item.done}}" size="sm" class="mini-seal" />
+      </view>
+    </view>
+
+    <button wx:if="{{completedCount === 7}}" class="btn-primary" bindtap="onCert">领取通游证书</button>
+    <view wx:else class="cert-locked">未集齐 · 通游证书未启</view>
+  </view>
+
+  <floating-su wx:if="{{user}}" />
+</view>

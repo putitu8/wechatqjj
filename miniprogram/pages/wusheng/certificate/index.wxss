@@ -1,0 +1,3 @@
+.page { padding: var(--sp-4); text-align: center; }
+.btn-primary { margin-top: var(--sp-4); background: var(--ink-deep); color: var(--paper-warm); height: 96rpx; line-height: 96rpx; border-radius: var(--r-md); font-family: 'NotoSerifSC', serif; letter-spacing: 6rpx; }
+.btn-secondary { margin-top: var(--sp-2); background: transparent; color: var(--ink-deep); height: 96rpx; line-height: 96rpx; border: 2rpx solid var(--ink-deep); border-radius: var(--r-md); font-family: 'NotoSerifSC', serif; letter-spacing: 6rpx; }

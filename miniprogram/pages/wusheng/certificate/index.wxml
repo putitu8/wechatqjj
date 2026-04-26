@@ -1,0 +1,5 @@
+<view class="page">
+  <certificate id="cert" nickname="{{nickname}}" completedAt="{{completedAt}}" siteNames="{{siteNames}}" />
+  <button class="btn-primary" bindtap="onSave">保存到相册</button>
+  <button class="btn-secondary" open-type="share">分享给朋友</button>
+</view>

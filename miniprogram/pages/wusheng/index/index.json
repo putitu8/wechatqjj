@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "吾生心途",
+  "usingComponents": {
+    "ancient-frame": "/components/ancient-frame/index",
+    "seal-stamp": "/components/seal-stamp/index",
+    "floating-su": "/components/floating-su/index"
+  },
+  "enablePullDownRefresh": true
+}

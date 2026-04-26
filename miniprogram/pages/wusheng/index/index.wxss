@@ -1,0 +1,27 @@
+.page { padding: var(--sp-5) var(--sp-4) 120rpx; min-height: 100vh; }
+
+.login-card { text-align: center; padding-top: 200rpx; }
+.avatar-large { width: 200rpx; height: 200rpx; border-radius: 50%; }
+.welcome { display: block; margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--ink-deep); font-family: 'NotoSerifSC', serif; }
+.welcome-sub { display: block; margin-top: var(--sp-1); font-size: var(--fs-sm); color: var(--text-fade); }
+.btn-primary { margin-top: var(--sp-5); background: var(--ink-deep); color: var(--paper-warm); height: 96rpx; line-height: 96rpx; border-radius: var(--r-md); font-family: 'NotoSerifSC', serif; letter-spacing: 6rpx; }
+.skip { display: block; margin-top: var(--sp-3); color: var(--text-fade); }
+
+.user-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.avatar { width: 108rpx; height: 108rpx; border-radius: 50%; border: 2rpx solid var(--frame-light); }
+.user-name { font-family: 'NotoSerifSC', serif; font-size: var(--fs-md); color: var(--ink-deep); letter-spacing: 6rpx; }
+
+.progress-card { background: var(--paper-warm); border: 2rpx solid var(--frame-light); border-radius: var(--r-sm); padding: var(--sp-3); margin-bottom: var(--sp-4); }
+.progress-title { font-family: 'NotoSerifSC', serif; font-weight: 600; font-size: var(--fs-md); color: var(--ink-deep); letter-spacing: 6rpx; }
+.progress-bar { position: relative; height: 20rpx; background: var(--paper-deep); border: 2rpx solid var(--frame-brown); margin-top: var(--sp-2); }
+.progress-fill { height: 100%; background: var(--ink-deep); }
+.progress-meta { margin-top: var(--sp-2); display: flex; justify-content: space-between; font-size: var(--fs-sm); color: var(--text-fade); }
+.num { color: var(--seal-red); font-family: 'NotoSerifSC', serif; font-size: var(--fs-md); font-weight: 700; }
+
+.mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-1); margin-bottom: var(--sp-5); }
+.mini { aspect-ratio: 1; border-radius: var(--r-sm); position: relative; display: flex; align-items: flex-end; padding: var(--sp-1); font-family: 'NotoSerifSC', serif; font-size: var(--fs-xs); color: var(--paper-warm); }
+.mini.done { background: linear-gradient(135deg, var(--ink-light), var(--ink-cyan)); }
+.mini.todo { background: var(--paper-deep); color: var(--text-mute); }
+.mini-name { font-weight: 600; }
+.mini-seal { position: absolute; top: 6rpx; right: 6rpx; }
+.cert-locked { width: 100%; padding: var(--sp-3); background: var(--paper-deep); border: 2rpx dashed var(--frame-brown); color: var(--text-fade); font-family: 'NotoSerifSC', serif; text-align: center; border-radius: var(--r-sm); letter-spacing: 6rpx; }
