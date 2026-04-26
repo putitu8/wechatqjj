@@ -1,0 +1,3 @@
+<view class="seal seal-{{size}} {{stamping ? 'stamping' : ''}}" aria-label="苏东坡印章">
+  <text class="seal-text">{{text}}</text>
+</view>
