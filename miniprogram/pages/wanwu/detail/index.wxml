@@ -1,0 +1,8 @@
+<view class="page" wx:if="{{dish}}">
+  <image class="hero-icon" src="{{dish.iconAsset || '/assets/dish-placeholder.png'}}" mode="aspectFit" />
+  <text class="name">{{dish.name}}</text>
+  <text class="anecdote">{{dish.anecdote}}</text>
+  <ancient-frame size="lg" class="quote-frame">
+    <text class="quote vertical">{{dish.quote}}</text>
+  </ancient-frame>
+</view>

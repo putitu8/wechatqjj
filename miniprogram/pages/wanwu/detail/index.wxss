@@ -1,0 +1,6 @@
+.page { padding: var(--sp-5) var(--sp-4) 120rpx; text-align: center; }
+.hero-icon { width: 320rpx; height: 320rpx; margin: 0 auto var(--sp-3); }
+.name { display: block; font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-xl); color: var(--ink-deep); letter-spacing: 8rpx; }
+.anecdote { display: block; margin: var(--sp-3) auto var(--sp-5); font-size: var(--fs-base); line-height: 1.7; color: var(--text-main); }
+.quote-frame { display: inline-block; }
+.quote { display: block; font-size: var(--fs-md); color: var(--ink-deep); letter-spacing: 6rpx; line-height: 1.4; }

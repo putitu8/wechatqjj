@@ -1,0 +1,12 @@
+.page { padding: var(--sp-3) var(--sp-4) 120rpx; }
+.head { padding: var(--sp-3) 0 var(--sp-4); }
+.title { font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-lg); color: var(--ink-deep); letter-spacing: 6rpx; }
+.meta { display: block; margin-top: var(--sp-1); font-size: var(--fs-xs); color: var(--text-fade); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.card { background: var(--paper-warm); border-radius: var(--r-md); padding: var(--sp-4) var(--sp-2); text-align: center; box-shadow: var(--ele-1); }
+.icon { width: 160rpx; height: 160rpx; margin: 0 auto var(--sp-2); }
+.name { font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-md); color: var(--ink-deep); letter-spacing: 6rpx; display: block; }
+.quote { font-family: 'NotoSerifSC', serif; font-size: var(--fs-sm); color: var(--text-fade); height: 100rpx; margin: var(--sp-2) auto; letter-spacing: 2rpx; display: block; }
+.divider { width: 60rpx; height: 16rpx; margin: var(--sp-2) auto; color: var(--seal-red); }
+.legend { font-size: var(--fs-sm); color: var(--text-main); font-family: 'NotoSerifSC', serif; }
