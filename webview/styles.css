@@ -1,0 +1,13 @@
+:root {
+  --ink-deep: #1F3A40;
+  --paper-rice: #F7EEDA;
+  --paper-warm: #F5E9C8;
+  --frame-brown: #5A3C1F;
+  --seal-red: #8B3A3A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; background: var(--paper-rice); font-family: 'Noto Serif SC', serif; overflow: hidden; }
+#map { width: 100%; height: 100%; background: #e8d9b8; }
+.leaflet-tile-pane { filter: sepia(0.4) hue-rotate(160deg) saturate(0.6) contrast(0.95); }
+.ink-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 400; }
+#labels { position: absolute; inset: 0; pointer-events: none; z-index: 500; }
