@@ -1,0 +1,15 @@
+<view class="frame frame-{{size}} {{clickable ? 'clickable' : ''}}"
+      bindtap="onTap"
+      aria-role="{{clickable ? 'button' : 'text'}}"
+      aria-label="{{ariaLabel || text}}">
+  <view class="inner">
+    <text class="text vertical">{{text}}</text>
+    <view wx:if="{{cornerMark}}" class="corner tl"></view>
+    <view wx:if="{{cornerMark}}" class="corner tr"></view>
+    <view wx:if="{{cornerMark}}" class="corner bl"></view>
+    <view wx:if="{{cornerMark}}" class="corner br"></view>
+  </view>
+  <view wx:if="{{seal}}" class="seal-corner">
+    <slot name="seal" />
+  </view>
+</view>

@@ -1,0 +1,34 @@
+.frame {
+  display: inline-block;
+  border: 4rpx solid var(--frame-brown);
+  background: var(--paper-warm);
+  padding: 6rpx;
+  position: relative;
+}
+.frame .inner {
+  border: 2rpx solid var(--frame-brown);
+  padding: var(--sp-2);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.frame .text {
+  font-family: 'NotoSerifSC', serif;
+  font-weight: 600;
+  color: var(--ink-deep);
+  letter-spacing: 8rpx;
+  line-height: 1.4;
+}
+.frame-sm .text { font-size: var(--fs-md); }
+.frame-md .text { font-size: var(--fs-lg); }
+.frame-lg .text { font-size: var(--fs-poem, 48rpx); }
+
+.corner { position: absolute; width: 8rpx; height: 8rpx; background: var(--frame-brown); border-radius: 50%; }
+.corner.tl { top: 8rpx; left: 8rpx; }
+.corner.tr { top: 8rpx; right: 8rpx; }
+.corner.bl { bottom: 8rpx; left: 8rpx; }
+.corner.br { bottom: 8rpx; right: 8rpx; }
+
+.clickable { transition: transform 150ms ease-out, box-shadow 150ms ease-out; }
+.clickable:active { transform: translateY(2rpx); box-shadow: 0 1rpx 2rpx rgba(31, 58, 64, 0.2); }
+
+.seal-corner { position: absolute; right: -8rpx; bottom: -8rpx; }
