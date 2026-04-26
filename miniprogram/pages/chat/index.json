@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "东坡先生",
+  "usingComponents": { "ancient-frame": "/components/ancient-frame/index" }
+}

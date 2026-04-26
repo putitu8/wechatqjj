@@ -1,0 +1,19 @@
+<view class="chat-page">
+  <scroll-view class="msg-list" scroll-y scroll-into-view="msg-{{messages.length - 1}}" enable-flex>
+    <view class="msg {{item.role}}" wx:for="{{messages}}" wx:key="id" id="msg-{{index}}">
+      <image wx:if="{{item.role === 'su'}}" class="face" src="/assets/su-avatar.png" />
+      <view class="bubble {{item.role}}">
+        <view wx:if="{{item.role === 'su'}}" class="prefix">答曰</view>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+    <view wx:if="{{suggestionsVisible}}" class="suggestions">
+      <view class="chip" wx:for="{{suggestions}}" wx:key="*this" bindtap="onChip" data-text="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="input-row">
+    <input class="input" placeholder="此处问东坡" value="{{draft}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
+    <button class="send" disabled="{{!canSend}}" bindtap="onSend">↑</button>
+  </view>
+</view>
