@@ -15,6 +15,14 @@
       <text class="user-name vertical">东坡同游 {{daysSinceJoin}} 日</text>
     </view>
 
+    <view wx:if="{{loading}}" class="skeleton-block">
+      <view class="card skeleton" style="height:200rpx; margin-bottom:24rpx;"></view>
+      <view class="mini-grid">
+        <view class="mini skeleton" wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="*this"></view>
+      </view>
+    </view>
+
+    <block wx:else>
     <view class="progress-card">
       <text class="progress-title">东坡行旅 · 杭州</text>
       <view class="progress-bar"><view class="progress-fill" style="width:{{progressPct}}%"></view></view>
@@ -33,6 +41,7 @@
 
     <button wx:if="{{completedCount === 7}}" class="btn-primary" bindtap="onCert">领取通游证书</button>
     <view wx:else class="cert-locked">未集齐 · 通游证书未启</view>
+    </block>
   </view>
 
   <floating-su wx:if="{{user}}" />

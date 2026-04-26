@@ -8,7 +8,7 @@ const CHECKIN_CACHE_KEY = 'checkinCache';
 const CHECKIN_CACHE_TTL = 5 * 60 * 1000;
 
 Page({
-  data: { sites: [], completedCount: 0 },
+  data: { sites: [], completedCount: 0, loading: true },
 
   onShow() { this._refresh(); },
   onPullDownRefresh() { this._refresh(true).then(() => wx.stopPullDownRefresh()); },
@@ -36,7 +36,7 @@ Page({
       distanceLabel: loc ? `${(distanceMeters(loc.lat, loc.lng, s.lat, s.lng) / 1000).toFixed(1)}km` : ''
     }));
 
-    this.setData({ sites, completedCount: progress.completedCount || 0 });
+    this.setData({ sites, completedCount: progress.completedCount || 0, loading: false });
   },
 
   onTapSite(e) {

@@ -4,7 +4,11 @@
     <text class="meta">东坡行旅 · 杭州 · 共 7 处 · 已访 {{completedCount}} 处</text>
   </view>
 
-  <view class="grid">
+  <view class="grid" wx:if="{{loading}}">
+    <view class="card skeleton" wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="*this"></view>
+  </view>
+
+  <view class="grid" wx:else>
     <view class="card" wx:for="{{sites}}" wx:key="id" bindtap="onTapSite" data-id="{{item.id}}">
       <view class="cover {{item.done ? '' : 'dim'}}">
         <text class="cover-glyph">{{item.glyph}}</text>

@@ -3,7 +3,7 @@ const storage = require('../../../utils/storage');
 const sitesData = require('../../../data/sites');
 
 Page({
-  data: { user: null, sites: [], completedCount: 0, remainingCount: 7, progressPct: 0, daysSinceJoin: 0 },
+  data: { user: null, sites: [], completedCount: 0, remainingCount: 7, progressPct: 0, daysSinceJoin: 0, loading: false },
 
   onShow() {
     const user = storage.get('userInfo');
@@ -13,6 +13,7 @@ Page({
   onPullDownRefresh() { this._refresh(true).then(() => wx.stopPullDownRefresh()); },
 
   async _refresh(force) {
+    this.setData({ loading: true });
     if (force) storage.clear('checkinCache');
     let progress = storage.get('checkinCache');
     if (!progress) {
@@ -31,7 +32,8 @@ Page({
       completedCount,
       remainingCount: 7 - completedCount,
       progressPct: Math.round(completedCount / 7 * 100),
-      daysSinceJoin: days
+      daysSinceJoin: days,
+      loading: false
     });
   },
 
