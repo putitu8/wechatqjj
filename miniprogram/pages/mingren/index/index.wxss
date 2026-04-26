@@ -1,0 +1,16 @@
+.page { padding: var(--sp-3) var(--sp-4) 120rpx; min-height: 100vh; }
+.head { padding: var(--sp-3) 0 var(--sp-4); }
+.title { font-family: 'NotoSerifSC', serif; font-weight: 700; font-size: var(--fs-lg); letter-spacing: 6rpx; color: var(--ink-deep); }
+.meta { display: block; margin-top: var(--sp-1); font-size: var(--fs-xs); color: var(--text-fade); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.card { background: var(--paper-warm); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--ele-1); }
+.cover { height: 220rpx; background: linear-gradient(135deg, var(--ink-light), var(--ink-cyan)); position: relative; display: flex; align-items: center; justify-content: center; }
+.cover.dim { filter: grayscale(0.7) brightness(0.85); }
+.cover-glyph { font-family: 'NotoSerifSC', serif; font-size: 80rpx; color: rgba(247, 238, 218, 0.4); }
+.seal { position: absolute; top: 12rpx; right: 12rpx; }
+.info { padding: var(--sp-2); }
+.row { display: flex; justify-content: space-between; margin-top: var(--sp-1); }
+.dist { font-size: var(--fs-xs); color: var(--text-fade); }
+.stat.ok { color: var(--success); font-family: 'NotoSerifSC', serif; }
+.stat.no { color: var(--text-mute); }
