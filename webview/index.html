@@ -11,7 +11,19 @@
 </head>
 <body>
   <div id="map"></div>
-  <svg id="ink" class="ink-overlay"></svg>
+  <svg id="ink" class="ink-overlay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1334" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="lake" cx="40%" cy="50%" r="40%">
+        <stop offset="0" stop-color="#2D5560" stop-opacity="0.15"/>
+        <stop offset="1" stop-color="#2D5560" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="320" cy="640" rx="280" ry="180" fill="url(#lake)"/>
+    <path d="M40,300 Q120,260 200,300 T380,310" stroke="#5A8A92" stroke-width="2" fill="none" opacity="0.35"/>
+    <path d="M500,400 Q580,360 660,400" stroke="#5A8A92" stroke-width="2" fill="none" opacity="0.25"/>
+    <text x="80" y="280" font-family="serif" font-size="40" fill="#5A8A92" opacity="0.4">山</text>
+    <text x="600" y="900" font-family="serif" font-size="32" fill="#5A8A92" opacity="0.3">屾</text>
+  </svg>
   <div id="labels"></div>
   <div id="drawer" class="drawer collapsed">
     <div class="drawer-handle"></div>
