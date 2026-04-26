@@ -1,0 +1,8 @@
+<view class="page">
+  <web-view src="{{mapUrl}}" bindmessage="onMapMessage" binderror="onMapError" />
+  <view wx:if="{{errored}}" class="error">
+    <text>墨砚未润，请稍后重启</text>
+    <button bindtap="onRetry">重试</button>
+  </view>
+  <floating-su />
+</view>
