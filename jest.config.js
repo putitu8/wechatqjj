@@ -4,7 +4,6 @@ module.exports = {
   collectCoverageFrom: [
     'miniprogram/utils/**/*.js',
     'miniprogram/ai/**/*.js',
-    'cloudfunctions/**/index.js',
     'cloudfunctions/**/*.js',
     '!**/node_modules/**'
   ]
