@@ -1,0 +1,15 @@
+{
+  "description": "古镇文化地图 · 苏东坡杭州",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "appid": "YOUR_APPID",
+  "projectname": "wechatapp",
+  "setting": {
+    "es6": true,
+    "minified": true,
+    "postcss": false,
+    "urlCheck": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0"
+}
