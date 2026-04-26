@@ -1,0 +1,76 @@
+<h2>地图风格 · 三选一</h2>
+<p class="subtitle">你的描述：水墨工笔画、青色主色、宣纸标签、宋刻体。下面三种各有取舍。</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="stamen-cyan" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;height:240px;overflow:hidden;position:relative;background:#e8d8b5">
+      <div style="position:absolute;inset:0;background:
+          radial-gradient(ellipse at 30% 40%, rgba(60,120,130,0.45) 0%, transparent 50%),
+          radial-gradient(ellipse at 70% 65%, rgba(80,150,160,0.35) 0%, transparent 55%),
+          radial-gradient(ellipse at 50% 30%, rgba(40,90,100,0.25) 0%, transparent 40%);
+          filter:hue-rotate(155deg) saturate(0.8) sepia(0.3)"></div>
+      <div style="position:absolute;inset:0;background:
+          repeating-linear-gradient(35deg, transparent 0 20px, rgba(40,80,90,0.05) 20px 21px),
+          repeating-linear-gradient(-45deg, transparent 0 24px, rgba(70,100,110,0.04) 24px 25px)"></div>
+      <div style="position:absolute;left:18%;top:35%;color:#3a4a3a;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.9);padding:8px 5px;border:1px solid #8a6d4f">游人脚底一声雷</div>
+      <div style="position:absolute;right:22%;bottom:25%;color:#3a4a3a;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.9);padding:8px 5px;border:1px solid #8a6d4f">忽悟过溪还一笑</div>
+    </div>
+    <div class="card-body">
+      <h3>A. Stamen Watercolor + 青色滤镜</h3>
+      <p><b>实现</b>：Stadia Maps 现成水彩瓦片，前端 CSS 套青色 hue-rotate</p>
+      <p><b>优</b>：1 天能上线、可缩放、动态平移</p>
+      <p><b>劣</b>：本质是西方水彩画风，不是真水墨；像"水彩涂的杭州"</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="alidade-ink" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;height:240px;overflow:hidden;position:relative;background:#f3e9d2">
+      <div style="position:absolute;inset:0;background:
+          linear-gradient(to bottom, transparent 0%, rgba(40,80,90,0.08) 100%)"></div>
+      <svg viewBox="0 0 320 240" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="none">
+        <path d="M 30 80 Q 90 70, 130 90 T 260 100 Q 290 130, 280 170 T 200 200 Q 130 210, 80 190 T 30 80" fill="none" stroke="#2d5560" stroke-width="1.2" opacity="0.7"/>
+        <path d="M 50 120 Q 100 110, 160 130 Q 220 150, 270 140" fill="none" stroke="#3a6b76" stroke-width="0.8" opacity="0.6"/>
+        <path d="M 80 60 Q 120 50, 150 70" fill="none" stroke="#2d5560" stroke-width="0.6" opacity="0.5"/>
+        <ellipse cx="180" cy="140" rx="40" ry="22" fill="#a3c7cb" opacity="0.4"/>
+      </svg>
+      <div style="position:absolute;left:18%;top:35%;color:#1f3a40;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.92);padding:8px 5px;border:1px solid #8a6d4f">游人脚底一声雷</div>
+      <div style="position:absolute;right:22%;bottom:25%;color:#1f3a40;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.92);padding:8px 5px;border:1px solid #8a6d4f">忽悟过溪还一笑</div>
+    </div>
+    <div class="card-body">
+      <h3>B. Stadia 极简底图 + 自绘水墨叠层</h3>
+      <p><b>实现</b>：Stadia Alidade Smooth 当骨架，上面叠 SVG 水墨皴笔（手绘西湖、远山、飞鸟）</p>
+      <p><b>优</b>：保留地图的可缩放可定位 + 真水墨味；产品上线最适合</p>
+      <p><b>劣</b>：要画 SVG 元素，多花 1-2 天</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="static-painting" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;height:240px;overflow:hidden;position:relative;background:#f0e3c4">
+      <svg viewBox="0 0 320 240" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="none">
+        <path d="M 0 180 Q 60 140, 120 160 Q 200 130, 260 155 Q 300 165, 320 180 L 320 240 L 0 240 Z" fill="#9bbac2" opacity="0.5"/>
+        <path d="M 30 60 Q 60 30, 90 60 Q 110 80, 90 100 Q 60 110, 30 90 Z" fill="#3a6b76" opacity="0.7"/>
+        <path d="M 200 50 Q 240 25, 270 55 Q 285 80, 260 95 Q 220 100, 200 80 Z" fill="#2d5560" opacity="0.65"/>
+        <path d="M 100 100 Q 130 85, 170 100 Q 200 115, 180 130 Q 130 135, 100 120 Z" fill="#5a8a92" opacity="0.5"/>
+        <circle cx="180" cy="160" r="3" fill="#8b3a3a"/>
+        <circle cx="100" cy="155" r="3" fill="#8b3a3a"/>
+        <circle cx="240" cy="170" r="3" fill="#8b3a3a"/>
+      </svg>
+      <div style="position:absolute;left:18%;top:35%;color:#1f3a40;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.92);padding:8px 5px;border:1px solid #8a6d4f">游人脚底一声雷</div>
+      <div style="position:absolute;right:22%;bottom:25%;color:#1f3a40;font-family:serif;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;background:rgba(247,237,217,0.92);padding:8px 5px;border:1px solid #8a6d4f">忽悟过溪还一笑</div>
+    </div>
+    <div class="card-body">
+      <h3>C. 全静态手绘水墨图</h3>
+      <p><b>实现</b>：一张完整的水墨画 PNG/SVG，标记是绝对定位的 hot-spot</p>
+      <p><b>优</b>：视觉最纯粹、最古风</p>
+      <p><b>劣</b>：不能缩放平移、不能扩展到其他城市；以后再做"杭州外"很难复用</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:30px">
+  <p class="label">说明</p>
+  <p>三个缩略图都是示意，不是最终成品。点上面的卡片选你心仪的方向，或在终端回复 A / B / C。</p>
+  <p>我的推荐是 <b>B</b>：因为你选了"上线、云开发、扩展性"路径，B 既保留水墨味，又能自然扩展到其他城市/景点。</p>
+</div>

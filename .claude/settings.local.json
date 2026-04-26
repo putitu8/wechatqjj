@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:replit.com)",
+      "WebFetch(domain:ancient-town-atlas.replit.app)",
+      "Skill(update-config)",
+      "Bash(C:/Users/Jack/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh *)",
+      "Bash(ssh -T -o StrictHostKeyChecking=no -o BatchMode=yes git@github.com)",
+      "Bash(python $SCRIPT *)"
+    ]
+  }
+}

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>古镇文化地图 · 苏东坡杭州 · 设计预览</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-deep:#1F3A40; --ink-cyan:#2D5560; --ink-light:#5A8A92;
+    --paper-rice:#F7EEDA; --paper-warm:#F5E9C8; --paper-deep:#EDDEB6;
+    --frame-brown:#5A3C1F; --frame-light:#B8966B;
+    --seal-red:#8B3A3A; --seal-light:#B86060;
+    --text-main:#3A2818; --text-fade:#7A6A4F; --text-mute:#A89880;
+    --success:#4A6B3F; --warn:#B8742A;
+
+    --serif:'Noto Serif SC','Source Han Serif SC','PingFang SC',serif;
+    --sans:'Noto Sans SC','PingFang SC',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{font-family:var(--sans);background:#2A241A;color:#E8E2D4;-webkit-font-smoothing:antialiased;}
+
+  /* PAGE LAYOUT --------------------------------------------- */
+  .page{max-width:1440px;margin:0 auto;padding:48px 32px 96px;}
+  .page-head{text-align:center;margin-bottom:48px;}
+  .page-head h1{font-family:var(--serif);font-weight:700;font-size:42px;letter-spacing:4px;color:#F5E9C8;margin-bottom:12px;}
+  .page-head .sub{font-size:14px;color:#9A8E78;letter-spacing:2px;}
+  .section-title{font-family:var(--serif);font-weight:600;font-size:22px;color:#D4C8B0;margin:64px 0 24px;letter-spacing:3px;border-left:3px solid var(--seal-red);padding-left:12px;}
+
+  .device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:48px;justify-items:center;}
+  .device-label{margin-top:16px;font-size:13px;color:#9A8E78;letter-spacing:1px;text-align:center;}
+
+  /* IPHONE MOCKUP ------------------------------------------- */
+  .iphone{
+    width:340px;height:720px;border-radius:48px;
+    background:#0a0a0a;padding:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 0 2px #222;
+    position:relative;
+  }
+  .iphone::before{
+    content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);
+    width:110px;height:28px;background:#0a0a0a;border-radius:18px;z-index:100;
+  }
+  .screen{
+    width:100%;height:100%;border-radius:36px;overflow:hidden;
+    background:var(--paper-rice);position:relative;
+    font-family:var(--sans);color:var(--text-main);
+    display:flex;flex-direction:column;
+  }
+  .status-bar{height:40px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 4px;font-size:12px;font-weight:600;color:var(--text-main);flex-shrink:0;}
+  .tab-bar{
+    height:64px;background:var(--paper-warm);border-top:1px solid var(--frame-light);
+    display:flex;flex-shrink:0;padding-bottom:6px;
+  }
+  .tab-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--text-mute);font-size:10px;font-family:var(--serif);}
+  .tab-item.active{color:var(--ink-deep);position:relative;}
+  .tab-item.active::after{content:'';position:absolute;top:-1px;width:18px;height:3px;background:var(--seal-red);}
+  .tab-icon{font-size:18px;line-height:1;}
+
+  .body{flex:1;overflow:hidden;position:relative;display:flex;flex-direction:column;}
+
+  /* SHARED -------------------------------------------------- */
+  .ancient-frame{
+    border:2px solid var(--frame-brown);padding:6px;
+    background:var(--paper-warm);position:relative;
+  }
+  .ancient-frame::before{
+    content:'';position:absolute;inset:4px;border:1px solid var(--frame-brown);pointer-events:none;
+  }
+  .ancient-frame .inner{position:relative;writing-mode:vertical-rl;text-orientation:upright;font-family:var(--serif);font-weight:600;color:var(--ink-deep);letter-spacing:4px;line-height:1.4;padding:8px 4px;}
+  .corner-mark{position:absolute;width:4px;height:4px;background:var(--frame-brown);border-radius:50%;}
+  .corner-mark.tl{top:8px;left:8px;}
+  .corner-mark.tr{top:8px;right:8px;}
+  .corner-mark.bl{bottom:8px;left:8px;}
+  .corner-mark.br{bottom:8px;right:8px;}
+
+  .seal{
+    width:42px;height:42px;background:var(--seal-red);color:var(--paper-warm);
+    font-family:var(--serif);font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 0 0 1px rgba(247,238,218,0.3);
+    flex-direction:column;line-height:1;letter-spacing:0;
+  }
+  .seal.small{width:26px;height:26px;font-size:9px;}
+  .seal-grid{display:flex;align-items:center;justify-content:center;}
+
+  .floating-su{
+    position:absolute;right:14px;bottom:84px;
+    width:60px;height:60px;border-radius:50%;
+    background:var(--paper-warm);border:2px solid var(--frame-light);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(31,58,64,0.18);
+    z-index:10;
+  }
+  .floating-su .face{
+    width:46px;height:46px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#d4b88a,#8a6a3e);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;color:#3a2818;font-size:18px;
+  }
+  .floating-su .bubble{
+    position:absolute;left:-44px;top:8px;
+    background:var(--paper-warm);border:1px solid var(--frame-brown);
+    padding:4px 8px;font-family:var(--serif);font-size:11px;color:var(--ink-deep);
+    border-radius:4px;
+  }
+
+  /* PAGE 1: MAP --------------------------------------------- */
+  .map-screen{background:#e8d9b8;}
+  .map-screen .body{
+    background:
+      radial-gradient(ellipse at 50% 35%, rgba(45,85,96,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 70%, rgba(90,138,146,0.08) 0%, transparent 50%),
+      linear-gradient(180deg,#ecdcb8,#dfc998);
+    position:relative;
+  }
+  .map-bar{position:absolute;top:8px;left:14px;right:14px;height:36px;background:rgba(245,233,200,0.85);backdrop-filter:blur(8px);border-radius:18px;display:flex;align-items:center;padding:0 14px;font-size:12px;color:var(--text-fade);font-family:var(--serif);box-shadow:0 1px 6px rgba(31,58,64,0.08);z-index:5;}
+  .map-bar .lens{margin-right:8px;color:var(--ink-cyan);}
+  .map-water{position:absolute;left:14%;top:30%;width:50%;height:32%;background:radial-gradient(ellipse at center,rgba(45,85,96,0.18) 0%, rgba(45,85,96,0.08) 60%, transparent 100%);border-radius:50%;}
+  .map-mountain{position:absolute;left:8%;top:18%;font-family:var(--serif);color:var(--ink-light);opacity:0.4;font-size:32px;}
+  .map-mountain.m2{left:65%;top:65%;font-size:24px;opacity:0.3;}
+  .map-bird{position:absolute;font-size:10px;color:var(--ink-cyan);opacity:0.5;}
+  .map-bird.b1{top:22%;right:18%;}
+  .map-bird.b2{top:28%;right:25%;}
+
+  .poem-label{
+    position:absolute;width:38px;
+    cursor:pointer;
+  }
+  .poem-label .frame-mini{
+    border:1.5px solid var(--frame-brown);padding:3px;background:var(--paper-warm);
+    box-shadow:0 2px 6px rgba(31,58,64,0.15);position:relative;
+  }
+  .poem-label .frame-mini::before{
+    content:'';position:absolute;inset:2px;border:0.5px solid var(--frame-brown);
+  }
+  .poem-label .text{
+    writing-mode:vertical-rl;text-orientation:upright;
+    font-family:var(--serif);font-weight:600;color:var(--ink-deep);
+    font-size:11px;line-height:1.3;letter-spacing:2px;padding:3px 1px;
+    position:relative;
+  }
+  .poem-label.p1{top:32%;left:25%;}
+  .poem-label.p2{top:42%;left:48%;}
+  .poem-label.p3{top:55%;left:18%;}
+  .poem-label.p4{top:62%;left:55%;}
+  .poem-label.p5{top:48%;left:72%;}
+  .poem-label.p6{top:72%;left:38%;}
+  .poem-label.p7{top:25%;left:62%;}
+
+  /* PAGE 2: SITE LIST --------------------------------------- */
+  .list-head{padding:14px 18px 10px;flex-shrink:0;}
+  .list-head h2{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--ink-deep);letter-spacing:3px;}
+  .list-head .meta{font-size:11px;color:var(--text-fade);margin-top:4px;}
+  .site-grid{padding:0 14px 14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;overflow-y:auto;flex:1;}
+  .site-card{
+    background:var(--paper-warm);border-radius:8px;overflow:hidden;
+    box-shadow:0 2px 8px rgba(31,58,64,0.06);
+    display:flex;flex-direction:column;position:relative;
+  }
+  .site-cover{
+    height:108px;
+    background:linear-gradient(135deg,#7a9aa0 0%,#3a5a60 100%);
+    position:relative;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:36px;color:rgba(247,238,218,0.4);
+  }
+  .site-cover.dim{filter:grayscale(0.7) brightness(0.85);}
+  .site-card .seal-corner{position:absolute;top:6px;right:6px;}
+  .site-info{padding:10px 12px;}
+  .site-info .name{font-family:var(--serif);font-weight:600;font-size:14px;color:var(--ink-deep);letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;height:60px;border-left:1px solid var(--frame-light);padding-left:6px;}
+  .site-info .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+  .site-info .dist{font-size:10px;color:var(--text-fade);}
+  .site-info .stat{font-size:10px;color:var(--success);font-family:var(--serif);}
+  .site-info .stat.no{color:var(--text-mute);}
+
+  /* PAGE 3: FOOD ------------------------------------------- */
+  .food-grid{padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;overflow-y:auto;flex:1;}
+  .food-card{
+    background:var(--paper-warm);border-radius:8px;padding:14px 10px;
+    text-align:center;box-shadow:0 2px 8px rgba(31,58,64,0.06);
+  }
+  .food-icon{
+    width:78px;height:78px;margin:0 auto 8px;
+    background:radial-gradient(ellipse at 30% 30%,#c89b65 0%,#8a5a2a 100%);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:28px;color:rgba(247,238,218,0.7);
+    box-shadow:inset 0 -4px 8px rgba(0,0,0,0.2);
+  }
+  .food-card .name{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--ink-deep);letter-spacing:3px;margin-bottom:6px;}
+  .food-card .quote{font-family:var(--serif);font-size:10px;color:var(--text-fade);writing-mode:vertical-rl;text-orientation:upright;height:50px;letter-spacing:1px;margin:6px auto;}
+  .food-card .divider{width:30px;height:8px;margin:6px auto;display:flex;align-items:center;justify-content:center;color:var(--seal-red);font-size:9px;letter-spacing:-2px;}
+  .food-card .legend{font-size:10px;color:var(--text-main);font-family:var(--serif);}
+
+  /* PAGE 4: PROGRESS --------------------------------------- */
+  .progress-body{padding:18px 16px;overflow-y:auto;flex:1;}
+  .user-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .user-avatar{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d4b88a,#8a6a3e);border:2px solid var(--frame-light);}
+  .user-name{font-family:var(--serif);writing-mode:vertical-rl;text-orientation:upright;font-size:13px;color:var(--ink-deep);letter-spacing:3px;}
+  .user-name strong{font-weight:700;font-size:15px;}
+
+  .progress-card{
+    background:var(--paper-warm);border:1.5px solid var(--frame-light);border-radius:6px;
+    padding:16px;margin-bottom:18px;
+  }
+  .progress-card .title{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink-deep);letter-spacing:3px;margin-bottom:10px;}
+  .progress-bar{position:relative;height:10px;background:var(--paper-deep);border:1px solid var(--frame-brown);}
+  .progress-bar::after{content:'';position:absolute;inset:1px;border:1px solid var(--frame-brown);}
+  .progress-fill{height:100%;background:repeating-linear-gradient(90deg,var(--ink-cyan) 0,var(--ink-cyan) 4px,var(--ink-deep) 4px,var(--ink-deep) 8px);width:43%;}
+  .progress-meta{margin-top:8px;display:flex;justify-content:space-between;font-size:11px;color:var(--text-fade);}
+  .progress-meta strong{color:var(--seal-red);font-family:var(--serif);font-size:14px;}
+
+  .site-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .site-mini{
+    aspect-ratio:1;border-radius:4px;
+    background:linear-gradient(135deg,#7a9aa0,#3a5a60);
+    position:relative;display:flex;align-items:flex-end;padding:4px;
+    font-family:var(--serif);font-size:9px;color:rgba(247,238,218,0.85);font-weight:600;
+  }
+  .site-mini.done .seal-corner{position:absolute;top:3px;right:3px;}
+  .site-mini.todo{background:#c8b89a;color:var(--text-fade);}
+  .site-mini.todo::before{content:'?';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--text-mute);font-family:var(--serif);}
+
+  .cert-btn{
+    margin-top:18px;width:100%;padding:14px;
+    background:var(--paper-deep);border:1.5px dashed var(--frame-brown);
+    color:var(--text-fade);font-family:var(--serif);font-size:14px;letter-spacing:3px;
+    text-align:center;border-radius:4px;
+  }
+
+  /* PAGE 5: CHAT ------------------------------------------- */
+  .chat-screen{background:
+    repeating-linear-gradient(0deg,transparent 0,transparent 28px,rgba(184,150,107,0.06) 28px,rgba(184,150,107,0.06) 29px),
+    var(--paper-rice);}
+  .chat-head{
+    height:50px;background:var(--paper-warm);border-bottom:1px solid var(--frame-light);
+    display:flex;align-items:center;padding:0 14px;gap:10px;flex-shrink:0;
+  }
+  .chat-head .back{font-family:var(--serif);color:var(--ink-deep);font-size:18px;}
+  .chat-head .face{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d4b88a,#8a6a3e);}
+  .chat-head .name{font-family:var(--serif);font-weight:700;color:var(--ink-deep);font-size:14px;letter-spacing:3px;}
+  .chat-head .more{margin-left:auto;color:var(--text-fade);}
+
+  .chat-body{flex:1;padding:14px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;}
+  .msg{display:flex;gap:8px;max-width:80%;}
+  .msg.me{margin-left:auto;flex-direction:row-reverse;}
+  .msg .face{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d4b88a,#8a6a3e);flex-shrink:0;}
+  .msg .bubble{
+    background:var(--paper-warm);padding:8px 12px;border-radius:6px;
+    font-family:var(--serif);font-size:13px;color:var(--ink-deep);line-height:1.6;letter-spacing:1px;
+    position:relative;border:1.5px solid var(--frame-brown);
+  }
+  .msg .bubble::before{
+    content:'';position:absolute;inset:2px;border:0.5px solid var(--frame-brown);pointer-events:none;
+  }
+  .msg .bubble .prefix{
+    position:absolute;top:-8px;left:6px;background:var(--seal-red);color:var(--paper-warm);
+    font-size:9px;padding:1px 5px;font-family:var(--serif);letter-spacing:1px;
+  }
+  .msg.me .bubble{background:var(--paper-deep);border:none;border-radius:14px 14px 4px 14px;}
+  .msg.me .bubble::before{display:none;}
+
+  .chat-input{
+    height:54px;background:var(--paper-warm);border-top:1px solid var(--frame-light);
+    display:flex;align-items:center;padding:0 12px;gap:8px;flex-shrink:0;
+  }
+  .chat-input input{
+    flex:1;height:36px;background:var(--paper-rice);border:1px solid var(--frame-light);
+    border-radius:6px;padding:0 12px;font-family:var(--serif);font-size:13px;color:var(--ink-deep);
+  }
+  .chat-input input::placeholder{color:var(--text-mute);}
+  .chat-input .send{
+    width:36px;height:36px;background:var(--ink-deep);color:var(--paper-rice);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:14px;
+  }
+
+  /* COMPONENT GALLERY -------------------------------------- */
+  .comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:32px;background:var(--paper-rice);padding:48px 32px;border-radius:16px;}
+  .comp{display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .comp-label{font-size:11px;color:var(--text-fade);font-family:var(--serif);letter-spacing:2px;}
+
+  .frame-demo{padding:20px;display:flex;justify-content:center;}
+  .frame-demo .ancient-frame{width:80px;height:160px;display:flex;align-items:center;justify-content:center;}
+
+  /* TOKEN GALLERY ------------------------------------------ */
+  .token-section{background:#1a1611;border-radius:16px;padding:32px;}
+  .token-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;}
+  .token{display:flex;align-items:center;gap:12px;background:#2a241a;padding:12px;border-radius:8px;}
+  .token .swatch{width:38px;height:38px;border-radius:6px;flex-shrink:0;border:1px solid rgba(255,255,255,0.1);}
+  .token .info{font-size:11px;}
+  .token .info .name{color:#e8e2d4;font-family:var(--serif);font-weight:600;}
+  .token .info .hex{color:#9a8e78;font-family:monospace;margin-top:2px;}
+
+  /* SCROLLBAR */
+  .body::-webkit-scrollbar,.chat-body::-webkit-scrollbar,.site-grid::-webkit-scrollbar,.food-grid::-webkit-scrollbar,.progress-body::-webkit-scrollbar{width:0;}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="page-head">
+    <h1>古镇文化地图 · 苏东坡杭州</h1>
+    <div class="sub">EASTERN PAPER · DESIGN PREVIEW · 2026-04-26</div>
+  </header>
+
+  <h2 class="section-title">五个核心页面</h2>
+
+  <div class="device-grid">
+
+    <!-- ========== 1. 诗路心踪 (MAP) ========== -->
+    <div>
+      <div class="iphone">
+        <div class="screen map-screen">
+          <div class="status-bar"><span>9:41</span><span>•••</span></div>
+          <div class="body">
+            <div class="map-bar"><span class="lens">⌕</span>东坡行旅 · 杭州</div>
+            <div class="map-mountain">山</div>
+            <div class="map-mountain m2">屾</div>
+            <div class="map-water"></div>
+            <div class="map-bird b1">~</div>
+            <div class="map-bird b2">~</div>
+
+            <div class="poem-label p1"><div class="frame-mini"><div class="text">石屋</div></div></div>
+            <div class="poem-label p2"><div class="frame-mini"><div class="text">有美</div></div></div>
+            <div class="poem-label p3"><div class="frame-mini"><div class="text">六一</div></div></div>
+            <div class="poem-label p4"><div class="frame-mini"><div class="text">苏堤</div></div></div>
+            <div class="poem-label p5"><div class="frame-mini"><div class="text">石像</div></div></div>
+            <div class="poem-label p6"><div class="frame-mini"><div class="text">大麦</div></div></div>
+            <div class="poem-label p7"><div class="frame-mini"><div class="text">过溪</div></div></div>
+
+            <div class="floating-su">
+              <div class="bubble">问我</div>
+              <div class="face">坡</div>
+            </div>
+          </div>
+          <div class="tab-bar">
+            <div class="tab-item active"><div class="tab-icon">⛰</div>诗路心踪</div>
+            <div class="tab-item"><div class="tab-icon">人</div>名人心迹</div>
+            <div class="tab-item"><div class="tab-icon">皿</div>万物心愈</div>
+            <div class="tab-item"><div class="tab-icon">印</div>吾生心途</div>
+          </div>
+        </div>
+      </div>
+      <div class="device-label">诗路心踪 · 水墨地图 + 竖排诗签</div>
+    </div>
+
+    <!-- ========== 2. 名人心迹 (LIST) ========== -->
+    <div>
+      <div class="iphone">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>•••</span></div>
+          <div class="body">
+            <div class="list-head">
+              <h2>名人心迹</h2>
+              <div class="meta">东坡行旅 · 杭州 · 共 7 处</div>
+            </div>
+            <div class="site-grid">
+              <div class="site-card">
+                <div class="site-cover">⛰<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-info">
+                  <div class="name">石屋洞题刻</div>
+                  <div class="row"><span class="dist">2.3km</span><span class="stat">⊙ 已抵达</span></div>
+                </div>
+              </div>
+              <div class="site-card">
+                <div class="site-cover">堂</div>
+                <div class="site-info">
+                  <div class="name">有美堂遗址</div>
+                  <div class="row"><span class="dist">3.1km</span><span class="stat no">未抵达</span></div>
+                </div>
+              </div>
+              <div class="site-card">
+                <div class="site-cover">泉<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-info">
+                  <div class="name">六一泉</div>
+                  <div class="row"><span class="dist">2.8km</span><span class="stat">⊙ 已抵达</span></div>
+                </div>
+              </div>
+              <div class="site-card">
+                <div class="site-cover dim">堤</div>
+                <div class="site-info">
+                  <div class="name">苏堤</div>
+                  <div class="row"><span class="dist">4.5km</span><span class="stat no">未抵达</span></div>
+                </div>
+              </div>
+              <div class="site-card">
+                <div class="site-cover">像<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-info">
+                  <div class="name">苏轼石像</div>
+                  <div class="row"><span class="dist">4.2km</span><span class="stat">⊙ 已抵达</span></div>
+                </div>
+              </div>
+              <div class="site-card">
+                <div class="site-cover dim">岭</div>
+                <div class="site-info">
+                  <div class="name">大麦岭题刻</div>
+                  <div class="row"><span class="dist">5.0km</span><span class="stat no">未抵达</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="floating-su">
+              <div class="bubble">问我</div>
+              <div class="face">坡</div>
+            </div>
+          </div>
+          <div class="tab-bar">
+            <div class="tab-item"><div class="tab-icon">⛰</div>诗路心踪</div>
+            <div class="tab-item active"><div class="tab-icon">人</div>名人心迹</div>
+            <div class="tab-item"><div class="tab-icon">皿</div>万物心愈</div>
+            <div class="tab-item"><div class="tab-icon">印</div>吾生心途</div>
+          </div>
+        </div>
+      </div>
+      <div class="device-label">名人心迹 · 7 处景点列表</div>
+    </div>
+
+    <!-- ========== 3. 万物心愈 (FOOD) ========== -->
+    <div>
+      <div class="iphone">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>•••</span></div>
+          <div class="body">
+            <div class="list-head">
+              <h2>万物心愈</h2>
+              <div class="meta">东坡七味 · 食以载道</div>
+            </div>
+            <div class="food-grid">
+              <div class="food-card">
+                <div class="food-icon">肉</div>
+                <div class="name">东坡肉</div>
+                <div class="quote">慢著火，少著水</div>
+                <div class="divider">━━━</div>
+                <div class="legend">徐州黄楼夜雪</div>
+              </div>
+              <div class="food-card">
+                <div class="food-icon">羹</div>
+                <div class="name">东坡羹</div>
+                <div class="quote">不用鱼肉五味</div>
+                <div class="divider">━━━</div>
+                <div class="legend">贬谪黄州自创</div>
+              </div>
+              <div class="food-card">
+                <div class="food-icon">骨</div>
+                <div class="name">烤羊脊</div>
+                <div class="quote">如食蟹螯</div>
+                <div class="divider">━━━</div>
+                <div class="legend">惠州寄子由帖</div>
+              </div>
+              <div class="food-card">
+                <div class="food-icon">芋</div>
+                <div class="name">煨芋</div>
+                <div class="quote">雪夜煨之</div>
+                <div class="divider">━━━</div>
+                <div class="legend">儋州夜话</div>
+              </div>
+              <div class="food-card">
+                <div class="food-icon">菊</div>
+                <div class="name">菊羹</div>
+                <div class="quote">秋来煮以羹</div>
+                <div class="divider">━━━</div>
+                <div class="legend">岭南野食</div>
+              </div>
+              <div class="food-card">
+                <div class="food-icon">蚝</div>
+                <div class="name">烤生蚝</div>
+                <div class="quote">恐北方君子知</div>
+                <div class="divider">━━━</div>
+                <div class="legend">儋州海味</div>
+              </div>
+            </div>
+            <div class="floating-su">
+              <div class="bubble">问我</div>
+              <div class="face">坡</div>
+            </div>
+          </div>
+          <div class="tab-bar">
+            <div class="tab-item"><div class="tab-icon">⛰</div>诗路心踪</div>
+            <div class="tab-item"><div class="tab-icon">人</div>名人心迹</div>
+            <div class="tab-item active"><div class="tab-icon">皿</div>万物心愈</div>
+            <div class="tab-item"><div class="tab-icon">印</div>吾生心途</div>
+          </div>
+        </div>
+      </div>
+      <div class="device-label">万物心愈 · 七味菜卡</div>
+    </div>
+
+    <!-- ========== 4. 吾生心途 (PROGRESS) ========== -->
+    <div>
+      <div class="iphone">
+        <div class="screen">
+          <div class="status-bar"><span>9:41</span><span>•••</span></div>
+          <div class="body">
+            <div class="progress-body">
+              <div class="user-head">
+                <div class="user-avatar"></div>
+                <div class="user-name">东坡同游 <strong>三日</strong></div>
+              </div>
+
+              <div class="progress-card">
+                <div class="title">东坡行旅 · 杭州</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="progress-meta">
+                  <span>已访 <strong>3</strong> 处</span>
+                  <span>余 4 处待行</span>
+                </div>
+              </div>
+
+              <div class="site-mini-grid">
+                <div class="site-mini done">石屋<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-mini todo"></div>
+                <div class="site-mini done">六一<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-mini todo"></div>
+                <div class="site-mini done">石像<div class="seal small seal-corner">东坡</div></div>
+                <div class="site-mini todo"></div>
+                <div class="site-mini todo"></div>
+              </div>
+
+              <div class="cert-btn">未集齐 · 通游证书未启</div>
+            </div>
+            <div class="floating-su">
+              <div class="bubble">问我</div>
+              <div class="face">坡</div>
+            </div>
+          </div>
+          <div class="tab-bar">
+            <div class="tab-item"><div class="tab-icon">⛰</div>诗路心踪</div>
+            <div class="tab-item"><div class="tab-icon">人</div>名人心迹</div>
+            <div class="tab-item"><div class="tab-icon">皿</div>万物心愈</div>
+            <div class="tab-item active"><div class="tab-icon">印</div>吾生心途</div>
+          </div>
+        </div>
+      </div>
+      <div class="device-label">吾生心途 · 进度 + 7 印方阵</div>
+    </div>
+
+    <!-- ========== 5. CHAT ========== -->
+    <div>
+      <div class="iphone">
+        <div class="screen chat-screen">
+          <div class="status-bar"><span>9:41</span><span>•••</span></div>
+          <div class="body">
+            <div class="chat-head">
+              <div class="back">‹</div>
+              <div class="face"></div>
+              <div class="name">东坡先生</div>
+              <div class="more">⋯</div>
+            </div>
+            <div class="chat-body">
+              <div class="msg">
+                <div class="face"></div>
+                <div class="bubble">
+                  <div class="prefix">答曰</div>
+                  幸会幸会。某苏轼，眉山人，熙宁四年初至杭州为通判。
+                </div>
+              </div>
+              <div class="msg me">
+                <div class="bubble">先生在杭州都做了什么？</div>
+              </div>
+              <div class="msg">
+                <div class="face"></div>
+                <div class="bubble">
+                  <div class="prefix">答曰</div>
+                  在杭治水筑堤，疏浚西湖；又得闲与僧友饮茶论诗。"水光潋滟晴方好，山色空蒙雨亦奇"，便是那时所写。
+                </div>
+              </div>
+              <div class="msg me">
+                <div class="bubble">东坡肉怎么做？</div>
+              </div>
+              <div class="msg">
+                <div class="face"></div>
+                <div class="bubble">
+                  <div class="prefix">答曰</div>
+                  净洗铛，少著水，柴头罨烟焰不起。待他自熟莫催他，火候足时他自美。
+                </div>
+              </div>
+            </div>
+            <div class="chat-input">
+              <input placeholder="此处问东坡">
+              <div class="send">↑</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-label">与东坡对话 · 古籍气泡 + 答曰前缀</div>
+    </div>
+
+  </div>
+
+  <!-- ========== COMPONENT GALLERY ========== -->
+  <h2 class="section-title">关键组件 anatomy</h2>
+  <div class="comp-grid">
+    <div class="comp">
+      <div class="frame-demo">
+        <div class="ancient-frame">
+          <span class="corner-mark tl"></span>
+          <span class="corner-mark tr"></span>
+          <span class="corner-mark bl"></span>
+          <span class="corner-mark br"></span>
+          <div class="inner">东坡行旅</div>
+        </div>
+      </div>
+      <div class="comp-label">ANCIENT FRAME · 古籍装帧标签</div>
+    </div>
+
+    <div class="comp">
+      <div style="padding:30px;display:flex;gap:20px;align-items:center;">
+        <div class="seal">东坡</div>
+        <div class="seal small">东坡</div>
+      </div>
+      <div class="comp-label">SEAL STAMP · 印章（大/小）</div>
+    </div>
+
+    <div class="comp">
+      <div style="padding:30px;position:relative;width:100%;height:100px;">
+        <div class="floating-su" style="position:relative;right:auto;bottom:auto;margin:0 auto;">
+          <div class="bubble">问我</div>
+          <div class="face">坡</div>
+        </div>
+      </div>
+      <div class="comp-label">FLOATING SU · 全局悬浮东坡</div>
+    </div>
+
+    <div class="comp">
+      <div style="padding:30px;display:flex;gap:18px;align-items:center;">
+        <div class="poem-label" style="position:relative;top:auto;left:auto;width:42px;">
+          <div class="frame-mini"><div class="text">有美</div></div>
+        </div>
+        <div class="poem-label" style="position:relative;top:auto;left:auto;width:42px;">
+          <div class="frame-mini"><div class="text">六一</div></div>
+        </div>
+      </div>
+      <div class="comp-label">POEM LABEL · 地图竖排诗签</div>
+    </div>
+  </div>
+
+  <!-- ========== TOKEN GALLERY ========== -->
+  <h2 class="section-title">设计 Token · 颜色</h2>
+  <div class="token-section">
+    <div class="token-grid">
+      <div class="token"><div class="swatch" style="background:#1F3A40;"></div><div class="info"><div class="name">ink-deep</div><div class="hex">#1F3A40</div></div></div>
+      <div class="token"><div class="swatch" style="background:#2D5560;"></div><div class="info"><div class="name">ink-cyan</div><div class="hex">#2D5560</div></div></div>
+      <div class="token"><div class="swatch" style="background:#5A8A92;"></div><div class="info"><div class="name">ink-light</div><div class="hex">#5A8A92</div></div></div>
+      <div class="token"><div class="swatch" style="background:#F7EEDA;"></div><div class="info"><div class="name">paper-rice</div><div class="hex">#F7EEDA</div></div></div>
+      <div class="token"><div class="swatch" style="background:#F5E9C8;"></div><div class="info"><div class="name">paper-warm</div><div class="hex">#F5E9C8</div></div></div>
+      <div class="token"><div class="swatch" style="background:#EDDEB6;"></div><div class="info"><div class="name">paper-deep</div><div class="hex">#EDDEB6</div></div></div>
+      <div class="token"><div class="swatch" style="background:#5A3C1F;"></div><div class="info"><div class="name">frame-brown</div><div class="hex">#5A3C1F</div></div></div>
+      <div class="token"><div class="swatch" style="background:#B8966B;"></div><div class="info"><div class="name">frame-light</div><div class="hex">#B8966B</div></div></div>
+      <div class="token"><div class="swatch" style="background:#8B3A3A;"></div><div class="info"><div class="name">seal-red</div><div class="hex">#8B3A3A</div></div></div>
+      <div class="token"><div class="swatch" style="background:#3A2818;"></div><div class="info"><div class="name">text-main</div><div class="hex">#3A2818</div></div></div>
+      <div class="token"><div class="swatch" style="background:#7A6A4F;"></div><div class="info"><div class="name">text-fade</div><div class="hex">#7A6A4F</div></div></div>
+      <div class="token"><div class="swatch" style="background:#4A6B3F;"></div><div class="info"><div class="name">success</div><div class="hex">#4A6B3F</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

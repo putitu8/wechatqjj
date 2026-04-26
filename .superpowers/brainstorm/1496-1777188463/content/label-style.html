@@ -1,0 +1,57 @@
+<h2>古籍装帧标签 · 三选一</h2>
+<p class="subtitle">竖排 + 米色宣纸 + 宋刻体 ——边框风格三种走向。地图上飘的诗句、tab 切换标签、景点名都用这个样式。</p>
+
+<div class="cards" style="grid-template-columns:repeat(3,1fr)">
+
+  <!-- A. 双线回字纹 -->
+  <div class="card" data-choice="double-line" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:30px 20px;height:280px;background:#f5e9c8;display:flex;justify-content:center;align-items:center">
+      <div style="position:relative;padding:14px 10px;background:#f7eeda;border:1.5px solid #5a3c1f">
+        <div style="position:absolute;inset:3px;border:0.5px solid #5a3c1f"></div>
+        <div style="writing-mode:vertical-rl;text-orientation:upright;font-family:'STZhongsong','SimSun',serif;font-size:18px;color:#3a2818;letter-spacing:6px;line-height:1.3;padding:6px 4px;position:relative">游人脚底一声雷<br/>满座顽云拨不开</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 双线回字纹</h3>
+      <p>双线边框 + 内角小留白。最经典的明清线装书内框样式。</p>
+    </div>
+  </div>
+
+  <!-- B. 单线鱼尾栏 -->
+  <div class="card" data-choice="fish-tail" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:30px 20px;height:280px;background:#f5e9c8;display:flex;justify-content:center;align-items:center">
+      <div style="position:relative;padding:18px 10px;background:#f7eeda;border:1px solid #5a3c1f">
+        <!-- top 鱼尾 -->
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #5a3c1f"></div>
+        <!-- bottom 鱼尾 -->
+        <div style="position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:10px solid #5a3c1f"></div>
+        <div style="writing-mode:vertical-rl;text-orientation:upright;font-family:'STZhongsong','SimSun',serif;font-size:18px;color:#3a2818;letter-spacing:6px;line-height:1.3;padding:6px 4px">游人脚底一声雷<br/>满座顽云拨不开</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 鱼尾栏（古籍版心样式）</h3>
+      <p>真正古籍版心规制，上下"鱼尾"标记。最有书卷气，也最专业。</p>
+    </div>
+  </div>
+
+  <!-- C. 竹简 -->
+  <div class="card" data-choice="bamboo" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:30px 20px;height:280px;background:#f5e9c8;display:flex;justify-content:center;align-items:center">
+      <div style="display:flex;gap:0;background:#c89a5a;padding:6px 4px;border-radius:2px;box-shadow:inset 0 0 8px rgba(80,40,10,0.3)">
+        <div style="background:linear-gradient(to right, #d8b07a, #b88c50, #d8b07a);width:24px;padding:8px 2px;border:0.5px solid #6b4a25;writing-mode:vertical-rl;text-orientation:upright;font-family:'STZhongsong','SimSun',serif;font-size:16px;color:#2a1a08;letter-spacing:4px">游人脚底一声雷</div>
+        <div style="background:linear-gradient(to right, #d8b07a, #b88c50, #d8b07a);width:24px;padding:8px 2px;border:0.5px solid #6b4a25;writing-mode:vertical-rl;text-orientation:upright;font-family:'STZhongsong','SimSun',serif;font-size:16px;color:#2a1a08;letter-spacing:4px">满座顽云拨不开</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 竹简风</h3>
+      <p>木竹简牍质感。比纸更"古"，但与"古籍装帧"的描述偏离（竹简是先秦汉，古籍多指宋元以后）。</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:30px">
+  <p class="label">说明</p>
+  <p>这是地图上飘着的诗句标签的样式参考，同样的边框风格会用到 ：抽屉里的诗 / 名人心迹景点卡片 / 万物心愈菜品卡片 / 苏东坡对话页底纹。</p>
+  <p>我的推荐：<b>B 鱼尾栏</b> —— 最贴合"中国古籍装帧"原描述，专业感最强。<b>A</b> 是稳健备选。<b>C</b> 是另一种古风但偏离原意。</p>
+</div>
